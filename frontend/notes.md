@@ -1,0 +1,1 @@
+Font-sizes: lg, 2xl 4xl
