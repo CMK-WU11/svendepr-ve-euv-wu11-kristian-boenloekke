@@ -8,7 +8,10 @@ export default function CardActivity({ activity }) {
                 <Image
                     src={activity.asset.url}
                     width={1000} height={1000} alt={activity.name}
-                    className="rounded-l-3xl rounded-tr-3xl col-start-1 row-start-1 row-span-3 z-[-10] h-full object-cover" />
+                    className="rounded-l-3xl rounded-tr-3xl col-start-1 row-start-1 row-span-3 z-[-10] h-full object-cover"
+                    priority
+                />
+
                 <div className="bg-pink rounded-tr-3xl rounded-bl-3xl row-start-3 col-start-1 opacity-90 text-lg p-6">
                     <h2>{activity.name}</h2>
                     <p>{activity.minAge}-{activity.maxAge} år</p>

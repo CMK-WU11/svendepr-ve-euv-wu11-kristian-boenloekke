@@ -7,8 +7,7 @@ export default async function Home() {
   return (
     <>
       <h1 className="text-4xl p-6">Aktiviteter</h1>
-      Yeaah
-      <ul className="p-6 flex flex-col gap-6 h-screen mb-20 overflow-y-scroll">
+      <ul className="px-6 pb-12 flex flex-col gap-6 h-[80vh] overflow-y-scroll no-scrollbar">
         {activities.map(activity => (
           <li key={activity.id}>
             <CardActivity activity={activity} />
@@ -18,3 +17,4 @@ export default async function Home() {
     </>
   )
 }
+
