@@ -5,7 +5,7 @@ export async function getCurrentUser() {
     const cookiesStore = await cookies()
     const token = cookiesStore.get('dans_token')
     const uid = cookiesStore.get('dans_uid')
-
+   
     if (!token) {
         return null
     }

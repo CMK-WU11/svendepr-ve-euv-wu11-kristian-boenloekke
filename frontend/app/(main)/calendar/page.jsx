@@ -4,6 +4,7 @@ import { redirect } from "next/navigation"
 
 export default async function Calendar() {
     const user = await getCurrentUser()
+    
     const activities = await fetch('http://localhost:4000/api/v1/activities'
     ).then(r => r.json())
 
@@ -11,25 +12,38 @@ export default async function Calendar() {
         return redirect('/login')
     }
 
-    const userId = user.id
-
-    const userActivities = activities.filter(activity =>
-        activity.users.some(user => user.id === userId)
+    const instructorActivities = activities.filter(activity =>
+        activity.instructorId === user?.id
     )
 
     return (
         <div>
             <h1 className="text-4xl p-6">Kalender</h1>
-            <ul>
-                {userActivities.map(activity => (
-                    <li key={activity.id} className="bg-white text-black p-6">
-                        <Link href={`/activities/${activity.id}`}>
-                            <h2>{activity.name}</h2>
-                            <p className="flex justify-between">{activity.weekday} <span>{activity.time}</span></p>
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+            {user?.role === 'instructor' ?
+                <ul>
+                    {instructorActivities.map(activity => (
+                        <li key={activity.id} className="bg-white text-black p-6">
+                            <Link href={`/calendar/${activity.id}`}>
+                                <h2>{activity.name}</h2>
+                                <p className="flex justify-between">{activity.weekday} <span>{activity.time}</span></p>
+                            </Link>
+                        </li>
+
+                    ))}
+                </ul>
+                :
+                <ul className="px-6 flex flex-col gap-6">
+                    {user?.activities.map(activity => (
+                        <li key={activity.id} className="bg-white text-black p-4 rounded-2xl">
+                            <Link href={`/activities/${activity.id}`}>
+                                <h2 className="text-2xl truncate whitespace-nowrap text-ellipsis">{activity.name}</h2>
+                                <p className="flex justify-between text-lg capitalize">{activity.weekday} {activity.time}</p>
+                            </Link>
+
+                        </li>
+                    ))}
+                </ul>
+            }
         </div>
     )
 }

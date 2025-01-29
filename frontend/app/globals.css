@@ -55,11 +55,23 @@ body {
   animation-duration: 3s;
 }
 
+.fade-out {
+  animation-name: fadeOut;
+  animation-duration: 4s;
+}
+
 @keyframes fadeIn {
   0% {opacity: 0;}
   50% {opacity: 0;}
   100% {opacity: 1;}
 }
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  30% {opacity: 0;}
+  100% {opacity: 0;}
+}
+
 
 /* :root {
   --background: #ffffff;
