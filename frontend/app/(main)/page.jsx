@@ -4,6 +4,8 @@ export default async function Home() {
   const activities = await fetch('http://localhost:4000/api/v1/activities'
   ).then(r => r.json())
 
+ 
+
   return (
     <>
       <h1 className="text-4xl p-6">Aktiviteter</h1>
@@ -14,6 +16,7 @@ export default async function Home() {
           </li>
         ))}
       </ul>
+      Tjutjuuu
     </>
   )
 }
