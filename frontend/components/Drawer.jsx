@@ -32,11 +32,7 @@ export default async function Drawer() {
                         <Link href='/login' >
                             <LogIn />
                         </Link>
-
                     }
-                </li>
-                <li>
-                    <LogoutButton />
                 </li>
             </ul>
         </nav>

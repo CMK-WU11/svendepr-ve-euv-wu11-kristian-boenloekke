@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation'
 export async function signIn(formState, formData) {
     const username = formData.get('username')
     const password = formData.get('password')
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
     // console.log('formData', username, password);
     
     const schema = z.object({
@@ -30,7 +31,7 @@ export async function signIn(formState, formData) {
         }
     }
 
-    const response = await fetch('http://localhost:4000/auth/token', {
+    const response = await fetch(`${baseUrl}/auth/token`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

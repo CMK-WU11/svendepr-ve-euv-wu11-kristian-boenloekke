@@ -5,7 +5,6 @@ export default function MainLayout({ children }) {
 		<>
 			<main>
 				{children}
-				sldkjdf
 			</main>
             <Drawer />
 		</>

@@ -1,6 +1,7 @@
 export default async function InstructorView({ params }) {
     const { id } = await params
-    const activity = await fetch(`http://localhost:4000/api/v1/activities/${id}`).then(r => r.json())
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+    const activity = await fetch(`${baseUrl}/api/v1/activities/${id}`).then(r => r.json())
     
     const participantsCount = activity.users.length
     

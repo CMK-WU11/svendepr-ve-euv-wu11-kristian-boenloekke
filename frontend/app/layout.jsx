@@ -1,6 +1,6 @@
-import Drawer from "@/components/Drawer";
 import "./globals.css";
 // import { headers } from "next/headers";
+import { ToastProvider } from "@/contexts/ToastContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,11 +13,11 @@ export default async function RootLayout({ children }) {
   // console.log('currentPath', currentPath)
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        {children}
+      <body className={`antialiased`}>
+        <ToastProvider>
+          {children}
+        </ToastProvider>
       </body>
     </html>
-  );
+  )
 }

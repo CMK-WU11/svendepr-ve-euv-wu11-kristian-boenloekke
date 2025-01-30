@@ -8,6 +8,12 @@ const nextConfig = {
                 port: "4000",
                 pathname: "/**",
               },
+              {
+                protocol: "https",
+                hostname: "kb-landrup-dans-api.onrender.com",
+                port: "10000",
+                pathname: "/**",
+              },
         ]
     }
 };

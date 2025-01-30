@@ -1,11 +1,13 @@
 import { getCurrentUser } from "@/actions/getCurrentUser"
+import Header from "@/components/Header"
 import Link from "next/link"
 import { redirect } from "next/navigation"
 
 export default async function Calendar() {
     const user = await getCurrentUser()
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
     
-    const activities = await fetch('http://localhost:4000/api/v1/activities'
+    const activities = await fetch(`${baseUrl}/api/v1/activities`
     ).then(r => r.json())
 
     if (!user) {
@@ -18,7 +20,7 @@ export default async function Calendar() {
 
     return (
         <div>
-            <h1 className="text-4xl p-6">Kalender</h1>
+            <Header title="Kalender" />
             {user?.role === 'instructor' ?
                 <ul>
                     {instructorActivities.map(activity => (

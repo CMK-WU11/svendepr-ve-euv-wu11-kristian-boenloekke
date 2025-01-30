@@ -30,9 +30,16 @@ body {
 
 .roboto {
   font-family: "Roboto", serif;
-  color: transparent;
-  -webkit-text-stroke: 2px #431567;
-
+  color: white;
+  opacity: 0.5;
+  letter-spacing: 2px;
+  text-shadow:
+    -3px -3px 0 #5E2E53,  
+    3px -3px 0 #5E2E53,
+    -3px 3px 0 #5E2E53,
+    3px 3px 0 #5E2E53;
+  /* -webkit-text-stroke: 1px #5E2E53;  */
+  
 }
 
 .text-outline {
@@ -60,6 +67,11 @@ body {
   animation-duration: 4s;
 }
 
+.fade-in-2 {
+  animation-name: fadeIn2;
+  animation-duration: 4s;
+}
+
 @keyframes fadeIn {
   0% {opacity: 0;}
   50% {opacity: 0;}
@@ -71,6 +83,18 @@ body {
   30% {opacity: 0;}
   100% {opacity: 0;}
 }
+
+@keyframes fadeIn2 {
+  0% {opacity: 0;}
+  30% {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+
+
+
+
+
 
 
 /* :root {

@@ -11,22 +11,26 @@ export async function signUp(formState, formData) {
     const firstname = formData.get('firstname')
     const lastname = formData.get('lastname')
     const birthdate = formData.get('birthdate')
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
     const schema = z.object({
         username: z.string().min(1, { message: "Brugernavn er påkrævet" }),
         password: z.string().min(1, { message: "Adgangskode er påkrævet" }),
         firstname: z.string().min(1, { message: "Fornavn er påkrævet" }),
         lastname: z.string().min(1, { message: "Efternavn er påkrævet" }),
-        birthdate: z.date( { message: "Fødselsdato er påkrævet"})
+        birthdate: z.string()
+            .min(1, { message: "Fødselsdato er påkrævet" })
+            .refine((val) => !isNaN(Date.parse(val)), { message: "Ugyldig dato" })
+            .transform((val) => new Date(val))
     })
 
-    const validated = schema.safeParse({username, password, firstname, lastname, birthdate})
+    const validated = schema.safeParse({ username, password, firstname, lastname, birthdate })
 
     if (!validated.success) {
         const errors = validated.error.format()
         console.log('errors', errors);
-        
-        
+
+
         return {
             success: false,
             formData: {
@@ -35,9 +39,9 @@ export async function signUp(formState, formData) {
                 firstname,
                 lastname,
                 birthdate
-                
+
             },
-            errors    
+            errors
         }
     }
 
@@ -56,7 +60,7 @@ export async function signUp(formState, formData) {
 
     const age = calculateAge(birthdate)
 
-    const response = await fetch("http://localhost:4000/api/v1/users", {
+    const response = await fetch(`${baseUrl}/api/v1/users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -73,11 +77,11 @@ export async function signUp(formState, formData) {
         throw new Error('Failed to sign up',)
     }
 
-    // if (response.ok) {
-    //     redirect('/login')
-    // }
-
     const result = await response.json()
     console.log('Sign up successful', result)
-    return result
+
+    if (response.ok) {
+        redirect('/login')
+    }
+
 }

@@ -1,13 +1,23 @@
-import SearchFilter from "@/components/SearchFilter";
+import Header from "@/components/Header";
+import SearchInput from "@/components/SearchInput";
+import SearchResults from "@/components/SearchResults";
+import { SearchProvider } from "@/contexts/SearchContext";
 
 export default async function Search() {
-    const activities = await fetch('http://localhost:4000/api/v1/activities'
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+    const activities = await fetch(`${baseUrl}/api/v1/activities`
     ).then(r => r.json())
-    
+
+
+
     return (
         <>
-            <h1 className="text-4xl p-6">Søg</h1>
-            <SearchFilter activities={activities} />
+            <SearchProvider>
+                <Header title="Søg">
+                    <SearchInput />
+                </Header>
+                <SearchResults activities={activities} />
+            </SearchProvider>
         </>
     )
 }
