@@ -4,11 +4,9 @@ import Link from "next/link"
 import { useState } from "react"
 import { signOut } from "@/actions/signOut"
 import Image from "next/image"
-// import { useCookies } from "react-cookie"
 
 export default function BurgerMenu({ className, user }) {
     const [showMenu, setShowMenu] = useState(false)
-    // const [cookies, setCookie, removeCookie] = useCookies(['dans_token', 'dans_uid'])
 
     function toggleMenu() {
         setShowMenu(!showMenu)
@@ -32,12 +30,12 @@ export default function BurgerMenu({ className, user }) {
                     <nav className="text-center mt-20 flex flex-col gap-8 z-40">
                         <ul className="flex flex-col gap-8">
                             <li>
-                                <Link href='/' onClick={toggleMenu}>
+                                <Link href='/' onClick={toggleMenu} prefetch>
                                     Aktiviteter
                                 </Link>
                             </li>
                             <li>
-                                <Link href='/search' onClick={toggleMenu}>
+                                <Link href='/search' onClick={toggleMenu} prefetch>
                                     Søg
                                 </Link>
                             </li>
@@ -45,7 +43,7 @@ export default function BurgerMenu({ className, user }) {
                         {user ? (
                             <ul className="flex flex-col gap-8">
                                 <li>
-                                    <Link href='/calendar' onClick={toggleMenu}>
+                                    <Link href='/calendar' onClick={toggleMenu} prefetch>
                                         Min Kalender
                                     </Link>
                                 </li>
@@ -58,12 +56,12 @@ export default function BurgerMenu({ className, user }) {
                         ) : (
                             <ul className="flex flex-col gap-8">
                                 <li>
-                                    <Link href='/login' onClick={toggleMenu}>
+                                    <Link href='/login' onClick={toggleMenu} prefetch>
                                         Log in
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href='/register' onClick={toggleMenu}>
+                                    <Link href='/register' onClick={toggleMenu} prefetch>
                                         Opret bruger
                                     </Link>
                                 </li>

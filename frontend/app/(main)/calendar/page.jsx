@@ -43,7 +43,7 @@ export default async function Calendar() {
                     ))}
                 </ul>
                 :
-                <ul className="px-6 flex flex-col gap-6">
+                <ul className="p-6 flex flex-col gap-6">
                     {user?.activities.map(activity => (
                         <li key={activity.id} className="bg-white text-black p-4 rounded-2xl">
                             <Link href={`/activities/${activity.id}`}>

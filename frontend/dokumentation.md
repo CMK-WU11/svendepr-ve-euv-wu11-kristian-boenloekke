@@ -16,6 +16,8 @@ Se applikationen her: [https://kb-landrup-dans-blue.vercel.app](https://kb-landr
 | user2 | 1234 |
 | user3 | 1234 |
 | user4 | 1234 |
+| user5 | 1234 |
+| user6 | 1234 |
 | instructor1 | 1234 |
 | instructor2 | 1234 |
 | instructor3 | 1234 |
@@ -53,7 +55,7 @@ Ved brug af metadata objektet inkluderes, foruden titel og beskrivelse:
 - Canonical URL's
 - OpenGraph og Twitter metadata
 - Der dannes et OpenGraph billede vha. Next/Vercel's imageResponse, se - /app/api/og/[aspect]/route.js 
-- Vha. generateMetadata funktionen dannes der titel og beskrivelse for dynamiske routes. 
+- Med generateMetadata funktionen dannes der titel og beskrivelse for dynamiske routes. 
 - Der oprettes en sitemap.xml vha af sitemap.js funktion
 - og en robots.txt med robots.js
 

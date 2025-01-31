@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function CardActivity({ activity }) {
     return (
-        <Link href={`/activities/${activity.id}`}>
+        <Link href={`/activities/${activity.id}`} prefetch>
             <article className="rounded-l-3xl rounded-tr-3xl grid grid-cols-1 grid-rows-3 h-full">
                 <Image
                     src={`/${activity.id}.jpg`}
