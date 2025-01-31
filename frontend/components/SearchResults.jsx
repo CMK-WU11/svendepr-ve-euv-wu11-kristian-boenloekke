@@ -15,9 +15,9 @@ export default function SearchResults({ activities }) {
     )
 
     return (
-        <ul className="p-6 flex flex-col gap-6">
+        <ul className="p-6 flex flex-col gap-6 last:mb-20">
             {results.length > 0 ? results.map(result => (
-                <li key={result.id}>
+                <li key={result.id} className="h-[40vh]">
                     <CardActivity activity={result} />
                 </li>
             )) : (

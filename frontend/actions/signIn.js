@@ -7,7 +7,6 @@ export async function signIn(formState, formData) {
     const username = formData.get('username')
     const password = formData.get('password')
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-    // console.log('formData', username, password);
     
     const schema = z.object({
         username: z.string().min(1, {message: "brugernavn er påkrævet"}),
@@ -15,8 +14,6 @@ export async function signIn(formState, formData) {
     })
 
     const validated = schema.safeParse({ username, password })
-
-    // debounce for en anden setTimeout() funktion. - 
 
     if (!validated.success) {
         const errors = validated.error.format()

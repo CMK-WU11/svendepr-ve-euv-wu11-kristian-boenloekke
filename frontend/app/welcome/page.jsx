@@ -1,11 +1,12 @@
 import Image from "next/image";
 import WelcomeButton from "./WelcomeButton";
 
+export const dynamic = 'force-static'
 
 export default function Welcome() {
    
     return (
-        <div className={`grid grid-cols-2 grid-rows-3 h-screen`}>
+        <div className={`grid grid-cols-2 grid-rows-3 h-[100dvh]`}>
             <Image src="/splash-image.jpg" width={4000} height={4000} alt=" dancer in splash of paint" className=" col-start-1 col-span-2 row-start-1 row-end-3 z-[-10] h-screen object-cover" />
             <div className="flex flex-col gap-2 col-start-1 row-start-2 self-end mb-5">
                 <p className="uppercase roboto text-4xl/9 font-bold pl-6 pr-2">Landrup</p>

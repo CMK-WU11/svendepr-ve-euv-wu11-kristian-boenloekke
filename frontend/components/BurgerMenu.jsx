@@ -4,8 +4,11 @@ import Link from "next/link"
 import { useState } from "react"
 import { signOut } from "@/actions/signOut"
 import Image from "next/image"
-export default function BurgerMenu({user, className}) {
+// import { useCookies } from "react-cookie"
+
+export default function BurgerMenu({ className, user }) {
     const [showMenu, setShowMenu] = useState(false)
+    // const [cookies, setCookie, removeCookie] = useCookies(['dans_token', 'dans_uid'])
 
     function toggleMenu() {
         setShowMenu(!showMenu)

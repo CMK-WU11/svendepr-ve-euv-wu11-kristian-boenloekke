@@ -6,7 +6,7 @@ export async function getCurrentUser() {
     const token = cookiesStore.get('dans_token')
     const uid = cookiesStore.get('dans_uid')
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-   
+    
     if (!token) {
         return null
     }
