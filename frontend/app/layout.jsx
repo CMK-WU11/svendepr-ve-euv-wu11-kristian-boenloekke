@@ -17,6 +17,7 @@ export default async function RootLayout({ children }) {
         <ToastProvider>
           {children}
         </ToastProvider>
+        klar parat
       </body>
     </html>
   )
