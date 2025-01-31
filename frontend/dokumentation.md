@@ -9,6 +9,9 @@ Eksamensopgave - Webudvikler (EUD)
 
 Se applikationen her: [https://kb-landrup-dans-blue.vercel.app](https://kb-landrup-dans-blue.vercel.app)
 
+**Vigtigt** - Automatiseret deployment til <https://kb-landrup-dans-blue.vercel.app> med Vercel, giver det problem at 'hobby projekter' hos Vercel, har en timeout på 5 sekunder, for server-requests. - Da api'et som er hosted med render.com, <https://kb-landrup-dans-api.onrender.com>, tager længere tid, for requests til login, og registrering af bruger, virker dette ikke i deployment.   
+**Jeg vil derfor gerne eksamineres, med projektet serveret over localhost**
+
 ## Brugere og adgangskoder
 | Brugernavn | Adgangskode |
 | - | - |
