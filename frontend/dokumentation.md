@@ -33,8 +33,7 @@ Se applikationen her: [https://kb-landrup-dans-blue.vercel.app](https://kb-landr
 - ReactJS 19 (frontend-bibliotek)
 - TailwindCSS (CSS-framework)
 - Zod (validerings-bibliotek)
-- Lucide-react (react ikon-bibliotek)
-- React-cookie (react client cookie bibliotek)  
+- Lucide-react (react ikon-bibliotek) 
 
 ### Framework (NextJS)  
 NextJS er et ReactJS-framework, designet til udvikling af komponentbaserede webapplikationer. Det er bygget på NodeJS som muliggør server-side rendering af JSX-komponenter, og backend integration.  
@@ -106,7 +105,7 @@ Her kan nævnes endnu en smart indbygget caching mekanisme i NextJS, hvor det - 
 
 ### Kode-eksempel
 
-Jeg har valgt at inddrage dette noget lange eksemplet nedenfor, da det illustrerer en kombination af client-side komponenter for state-håndtering af UI, og server-side actions. Knappen for til- og afmelding af danse-hold, er lavet med følgende flow:
+Jeg har valgt at inddrage dette noget lange eksempel nedenfor, da det illustrerer en kombination af client-side komponenter for state-håndtering af UI, og server-side actions. Knappen for til- og afmelding af danse-hold, er lavet med følgende flow:
 - Komponenten tjekker om en bruger er logget ind, og hvis ikke returnerer den null (knappen vises ikke).
 - Komponenten tager imod nogle 'tjeks' for hold-tilmeldings restriktioner i (props).  
 - state isEnrolled (useState) tager tjek for brugers hold-tilmeldinger(issignedUp) som initial value
